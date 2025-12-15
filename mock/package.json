@@ -1,0 +1,10 @@
+{
+  "name": "mock-user-api",
+  "version": "1.0.0",
+  "scripts": {
+    "mock": "json-server --watch db.json --port 3000"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.4"
+  }
+}

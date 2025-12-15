@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ada",
+      "email": "ada@mail.com",
+      "role": "qa"
+    },
+    {
+      "id": 2,
+      "name": "Alan",
+      "email": "alan@mail.com",
+      "role": "dev"
+    },
+    {
+      "name": "Test User",
+      "email": "test.user@mail.com",
+      "role": "qa",
+      "id": 3
+    },
+    {
+      "name": "Test User",
+      "email": "test.user@mail.com",
+      "role": "qa",
+      "id": 4
+    },
+    {
+      "name": "Updated User",
+      "email": "updated.user@mail.com",
+      "role": "qa",
+      "id": 5
+    },
+    {
+      "name": "Test User",
+      "email": "test.user@mail.com",
+      "role": "qa",
+      "id": 6
+    },
+    {
+      "name": "Updated User",
+      "email": "updated.user@mail.com",
+      "role": "qa",
+      "id": 7
+    },
+    {
+      "name": "Test User",
+      "email": "test.user@mail.com",
+      "role": "qa",
+      "id": 8
+    },
+    {
+      "name": "Updated User",
+      "email": "updated.user@mail.com",
+      "role": "qa",
+      "id": 9
+    }
+  ]
+}
