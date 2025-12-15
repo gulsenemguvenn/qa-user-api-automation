@@ -1,6 +1,7 @@
 package com.gulsenem.api.users;
 
 import com.gulsenem.api.base.BaseTest;
+import com.gulsenem.api.helpers.ApiTestAssertions;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -9,12 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class GetUserInvalidIdTest extends BaseTest {
 
     @Test
-    void shouldReturn4xxWhenIdIsInvalid() {
-        Exception ex = org.junit.jupiter.api.Assertions.assertThrows(Exception.class, () ->
+    void shouldReturn400Or404WhenIdIsInvalid() {
+        int status = ApiTestAssertions.statusCodeOf(() ->
                 given().when().get("/users/abc")
         );
 
-        String msg = ex.getMessage();
-        assertTrue(msg.contains("status code: 400") || msg.contains("status code: 404"));
+        assertTrue(status == 400 || status == 404, "Expected 400 or 404 but got: " + status);
     }
 }

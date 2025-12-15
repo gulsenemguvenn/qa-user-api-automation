@@ -1,22 +1,28 @@
 package com.gulsenem.api.base;
 
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.log.LogDetail;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
 
-public abstract class BaseTest {
+public class BaseTest {
+
+    protected static RequestSpecification requestSpec;
 
     @BeforeAll
-    static void setup() {
-        RestAssured.baseURI = resolveBaseUrl();
-    }
+    static void setUp() {
+        RestAssured.baseURI = "http://localhost";
+        RestAssured.port = 3000;
 
-    private static String resolveBaseUrl() {
-        String fromMaven = System.getProperty("api.baseUrl");
-        if (fromMaven != null && !fromMaven.isBlank()) return fromMaven;
+        requestSpec = new RequestSpecBuilder()
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .log(LogDetail.ALL)
+                .build();
 
-        String fromEnv = System.getenv("API_BASE_URL");
-        if (fromEnv != null && !fromEnv.isBlank()) return fromEnv;
-
-        return "http://localhost:3000";
+        RestAssured.requestSpecification = requestSpec;
+        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
 }
